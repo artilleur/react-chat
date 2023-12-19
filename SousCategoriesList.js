@@ -1,9 +1,9 @@
 // SousCategoriesList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { View, Text, FlatList, Image } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 
-const SousCategoriesList = ({ route }) => {
+const SousCategoriesList = ({ route, navigation }) => {
   const { categorie } = route.params;
   const [sousCategories, setSousCategories] = useState([]);
 
@@ -26,8 +26,14 @@ const SousCategoriesList = ({ route }) => {
   }, [categorie]);
 
   const filteredSousCategories = sousCategories.filter(
-    (sousCategorie) => sousCategorie.categorie === `/api/categories/${categorie.id}`
+    (sousCategorie) =>
+      sousCategorie.categorie === `/api/categories/${categorie.id}`
   );
+
+  const handleSousCategoriePress = (sousCategorie) => {
+    // Navigate to the ProductsList screen with the selected sousCategorie
+    navigation.navigate('Products', { sousCategorie });
+  };
 
   return (
     <View style={{ alignItems: 'center', marginBottom: 10 }}>
@@ -38,16 +44,19 @@ const SousCategoriesList = ({ route }) => {
         data={filteredSousCategories}
         keyExtractor={(sousCategorie) => sousCategorie['@id']}
         renderItem={({ item: sousCategorie }) => (
-          <View style={{ alignItems: 'center', marginBottom: 10 }}>
-            <Image
-              source={{
-                uri: `http://10.0.2.2:8000/images/${sousCategorie.image}`,
-              }}
-              style={{ width: 150, height: 150 }}
-            />
-            <Text>{sousCategorie.nom}</Text>
-            {/* <Text>{sousCategorie.categorie}</Text> */}
-          </View>
+          <TouchableOpacity
+            onPress={() => handleSousCategoriePress(sousCategorie)}
+          >
+            <View style={{ alignItems: 'center', marginBottom: 10 }}>
+              <Image
+                source={{
+                  uri: `http://10.0.2.2:8000/images/${sousCategorie.image}`,
+                }}
+                style={{ width: 150, height: 150 }}
+              />
+              <Text>{sousCategorie.nom}</Text>
+            </View>
+          </TouchableOpacity>
         )}
       />
     </View>
