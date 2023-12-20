@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CategoriesList from './CategoriesList';
 import SousCategoriesList from './SousCategoriesList';
 import ProductsList from './ProductsList';
+import ProductDetailList from './ProductDetailList';
 
 const Stack = createStackNavigator();
 
@@ -15,9 +16,8 @@ const App = () => {
       <Stack.Navigator initialRouteName="Categories">
         <Stack.Screen name="Categories" component={CategoriesList} />
         <Stack.Screen name="SousCategories" component={SousCategoriesList} />
-        <Stack.Screen name="Products">
-          {props => <ProductsList {...props} />}
-        </Stack.Screen>
+        <Stack.Screen name="Products" component={ProductsList} />
+        <Stack.Screen name="ProductDetail" component={ProductDetailList} />
       </Stack.Navigator>
     </NavigationContainer>
   );

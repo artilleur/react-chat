@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';  // Importez le hook useNavigation
+import ProductDetailList from './ProductDetailList';
 
 const ProductsList = ({ route }) => {
   const { sousCategorie } = route.params;
   const [products, setProducts] = useState([]);
+  const navigation = useNavigation();  // Utilisez le hook useNavigation pour obtenir l'objet navigation
 
   useEffect(() => {
     console.log('SousCategorie from route params:', sousCategorie);
@@ -30,8 +33,8 @@ const ProductsList = ({ route }) => {
   );
 
   const handleProductPress = (product) => {
-    // Handle the press on a product, e.g., navigate to a product details screen
-    console.log('Product pressed:', product);
+    // Navigate to the ProductDetailList screen with the selected product
+    navigation.navigate('ProductDetail', { product });
   };
 
   return (
@@ -51,7 +54,12 @@ const ProductsList = ({ route }) => {
                 }}
                 style={{ width: 150, height: 150 }}
               />
-              <Text>{product.nom}</Text>
+              <View style={{ alignItems: 'center', marginBottom: 10 }}></View>
+              <Text style={{ color: 'red' }}>NOM</Text>
+              <Text>{product.nom} {'\n'} </Text>
+              <Text style={{ color: 'red' }}>PRIX {'\n'}</Text>
+              <Text>{product.prix}€ {'\n'} {'\n'} {'\n'} </Text>
+              {/* <Text>{product.description} {'\n'} {'\n'} {'\n'} </Text> */}
               {/* You can display other product details here */}
             </View>
           </TouchableOpacity>

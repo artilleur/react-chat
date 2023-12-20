@@ -23,7 +23,7 @@ const CategoriesList = ({ navigation }) => {
   };
   
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <FlatList
         data={categories}
         keyExtractor={(item) => item.id.toString()}
