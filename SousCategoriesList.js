@@ -38,7 +38,7 @@ const SousCategoriesList = ({ route, navigation }) => {
   return (
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
       <Text>{categorie.nom}</Text>
-      <Text>{categorie.id}</Text>
+      {/* <Text>{categorie.id}</Text> */}
 
       <FlatList
         data={filteredSousCategories}

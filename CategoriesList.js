@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { View, Text, FlatList, TouchableOpacity, Image } from 'react-native';
+import { View, Text, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 const CategoriesList = ({ navigation }) => {
   const [categories, setCategories] = useState([]);
@@ -24,6 +24,9 @@ const CategoriesList = ({ navigation }) => {
   
   return (
     <View style={{ flex: 1 }}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>COUTELLERIE80</Text>
+      </View>
       <FlatList
         data={categories}
         keyExtractor={(item) => item.id.toString()}
@@ -40,5 +43,20 @@ const CategoriesList = ({ navigation }) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  headerContainer: {
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+  headerText: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    color: 'red', // Couleur rouge
+  },
+});
 
 export default CategoriesList;
