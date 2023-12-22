@@ -32,12 +32,15 @@ const ProductDetailList = ({ route }) => {
             }}
             style={{ width: 150 * scale, height: 150 * scale }}
           />
-          <View style={{ alignItems: 'center', marginBottom: 10, marginHorizontal: 35 }}>
+          <View style={{ alignItems: 'center', marginVertical: 35, marginHorizontal: 50 }}>
             <Text style={{ color: 'red' }}>NOM</Text>
             <Text>{product.nom} {'\n'} </Text>
             <Text style={{ color: 'red' }}>PRIX {'\n'}</Text>
             <Text>{product.prix}€ {'\n'} {'\n'} {'\n'} </Text>
-            <Text>{product.description} {'\n'} {'\n'} {'\n'} </Text>
+            
+            <Text style={{ backgroundColor: 'lightblue', padding: 10 }}>
+  {product.description} {'\n'} {'\n'} {'\n'}
+</Text>
             {/* You can display other product details here */}
           </View>
         </View>
