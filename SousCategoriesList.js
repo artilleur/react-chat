@@ -44,7 +44,7 @@ const SousCategoriesList = ({ route, navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
-      <Text style={styles.headerText}>{categorie.nom}</Text>
+     
       {/* <Text>{categorie.id}</Text> */}
       <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
       <TouchableOpacity onPress={handleBackPress}>
@@ -52,7 +52,8 @@ const SousCategoriesList = ({ route, navigation }) => {
   RETOUR CATEGORIES {'\n'} {'\n'}
 </Text>
       </TouchableOpacity>
-
+       <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+         <Text style={styles.headerText}>{categorie.nom}</Text>
       <FlatList
         data={filteredSousCategories}
         keyExtractor={(sousCategorie) => sousCategorie['@id']}

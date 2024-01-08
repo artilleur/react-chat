@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     color: 'red', // Couleur rouge
      backgroundColor: 'lime', 
   },
+  
 });
 
 

@@ -36,8 +36,9 @@ const CategoriesList = ({ navigation }) => {
           <TouchableOpacity onPress={() => handleCategoriePress(item)}>
             <View style={{ alignItems: 'center', marginVertical:30 }}>
               <Image source={{ uri: `http://10.0.2.2:8000/images/${item.image}` }} style={{ width: 150, height: 150 }} />
-              <Text>{item.nom}</Text>
-              <Text>{item.id}</Text>
+               <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+              <Text style={styles.headerText2}>{item.nom}</Text>
+              {/* <Text>{item.id}</Text> */}
             </View>
           </TouchableOpacity>
         )}
@@ -53,11 +54,20 @@ const styles = StyleSheet.create({
   },
   headerText: {
     fontWeight: 'bold',
-    fontSize: 54,
+    fontSize: 34,
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     color: 'red', // Couleur rouge
+  },
+  headerText2: {
+    fontWeight: 'bold',
+    fontSize: 34,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    color: 'white', // Couleur rouge
+     backgroundColor: 'grey', 
   },
 });
 
