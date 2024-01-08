@@ -46,6 +46,7 @@ const SousCategoriesList = ({ route, navigation }) => {
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
       <Text style={styles.headerText}>{categorie.nom}</Text>
       {/* <Text>{categorie.id}</Text> */}
+      <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
       <TouchableOpacity onPress={handleBackPress}>
         <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>{'\n'} {'\n'}
   RETOUR CATEGORIES {'\n'} {'\n'}
@@ -60,6 +61,7 @@ const SousCategoriesList = ({ route, navigation }) => {
           <TouchableOpacity
             onPress={() => handleSousCategoriePress(sousCategorie)}
           >
+            <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
             <View style={{ alignItems: 'center', marginBottom: 10 }}>
               
               <Image

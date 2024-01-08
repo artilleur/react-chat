@@ -34,10 +34,11 @@ const ProductDetailList = ({ route }) => {
         onGestureEvent={onPinchGestureEvent}
         onHandlerStateChange={onPinchHandlerStateChange}
       >
-        <View style={{ alignItems: 'center', marginBottom: 10 }}>
+        <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}>
            <TouchableOpacity onPress={handleBackPress}>
-        <Text>Back</Text>
+        <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>RETOUR LISTE PRODUITS</Text>
       </TouchableOpacity>
+      <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
           <Image
             source={{
               uri: `http://10.0.2.2:8000/images/${product.image}`,
@@ -56,6 +57,7 @@ const ProductDetailList = ({ route }) => {
             {/* You can display other product details here */}
           </View>
         </View>
+        
       </PinchGestureHandler>
     </ScrollView>
   );
