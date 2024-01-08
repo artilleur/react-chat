@@ -47,7 +47,7 @@ const SousCategoriesList = ({ route, navigation }) => {
       <Text style={styles.headerText}>{categorie.nom}</Text>
       {/* <Text>{categorie.id}</Text> */}
       <TouchableOpacity onPress={handleBackPress}>
-        <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>
+        <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>{'\n'} {'\n'}
   RETOUR CATEGORIES {'\n'} {'\n'}
 </Text>
       </TouchableOpacity>
