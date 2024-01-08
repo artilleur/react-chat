@@ -1,7 +1,7 @@
 // ProductsList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';  // Importez le hook useNavigation
 import ProductDetailList from './ProductDetailList';
 
@@ -47,7 +47,7 @@ const ProductsList = ({ route }) => {
         <Text style={{ color: 'white', backgroundColor: 'black', padding: 10 }}>RETOUR SOUS_CATEGORIES</Text>
       </TouchableOpacity>
       <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
-      <Text>{sousCategorie.nom}</Text>
+      <Text style={styles.headerText}>{sousCategorie.nom}</Text>
       <Text>{sousCategorie.id}</Text>
 
       <FlatList
@@ -76,5 +76,21 @@ const ProductsList = ({ route }) => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  headerContainer: {
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+  headerText: {
+    fontWeight: 'bold',
+    fontSize: 34,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    color: 'red', // Couleur rouge
+     backgroundColor: 'lime', 
+  },
+});
+
 
 export default ProductsList;
