@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 
 const SousCategoriesList = ({ route, navigation }) => {
   const { categorie } = route.params;
   const [sousCategories, setSousCategories] = useState([]);
+  
 
   useEffect(() => {
     console.log('Categorie from route params:', categorie);
@@ -34,6 +37,10 @@ const SousCategoriesList = ({ route, navigation }) => {
     // Navigate to the ProductsList screen with the selected sousCategorie
     navigation.navigate('Products', { sousCategorie });
   };
+  const handleBackPress = () => {
+    // Go back to the previous screen
+    navigation.goBack();
+  };
 
   return (
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
@@ -48,6 +55,9 @@ const SousCategoriesList = ({ route, navigation }) => {
             onPress={() => handleSousCategoriePress(sousCategorie)}
           >
             <View style={{ alignItems: 'center', marginBottom: 10 }}>
+              <TouchableOpacity onPress={handleBackPress}>
+        <Text>Back</Text>
+      </TouchableOpacity>
               <Image
                 source={{
                   uri: `http://10.0.2.2:8000/images/${sousCategorie.image}`,

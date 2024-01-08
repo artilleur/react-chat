@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView,TouchableOpacity,navigation } from 'react-native';
 import { PinchGestureHandler, State } from 'react-native-gesture-handler';
-
+import { useNavigation } from '@react-navigation/native';
 const ProductDetailList = ({ route }) => {
   const { product } = route.params;
+  const navigation = useNavigation(); 
 
   let scale = 1;
 
@@ -18,14 +19,25 @@ const ProductDetailList = ({ route }) => {
       scale = Math.max(1, Math.min(scale, 2));
     }
   };
+   const handleBackPress = () => {
+    // Go back to the previous screen
+    navigation.goBack();
+  };
+  const MyComponent = () => {
+  const navigation = useNavigation();
+  };
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+     
       <PinchGestureHandler
         onGestureEvent={onPinchGestureEvent}
         onHandlerStateChange={onPinchHandlerStateChange}
       >
         <View style={{ alignItems: 'center', marginBottom: 10 }}>
+           <TouchableOpacity onPress={handleBackPress}>
+        <Text>Back</Text>
+      </TouchableOpacity>
           <Image
             source={{
               uri: `http://10.0.2.2:8000/images/${product.image}`,
