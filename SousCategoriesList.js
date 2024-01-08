@@ -1,7 +1,7 @@
 // SousCategoriesList.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -44,20 +44,24 @@ const SousCategoriesList = ({ route, navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
-      <Text>{categorie.nom}</Text>
+      <Text style={styles.headerText}>{categorie.nom}</Text>
       {/* <Text>{categorie.id}</Text> */}
+      <TouchableOpacity onPress={handleBackPress}>
+        <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>
+  RETOUR CATEGORIES {'\n'} {'\n'}
+</Text>
+      </TouchableOpacity>
 
       <FlatList
         data={filteredSousCategories}
         keyExtractor={(sousCategorie) => sousCategorie['@id']}
         renderItem={({ item: sousCategorie }) => (
+          
           <TouchableOpacity
             onPress={() => handleSousCategoriePress(sousCategorie)}
           >
             <View style={{ alignItems: 'center', marginBottom: 10 }}>
-              <TouchableOpacity onPress={handleBackPress}>
-        <Text>Back</Text>
-      </TouchableOpacity>
+              
               <Image
                 source={{
                   uri: `http://10.0.2.2:8000/images/${sousCategorie.image}`,
@@ -67,10 +71,26 @@ const SousCategoriesList = ({ route, navigation }) => {
               <Text>{sousCategorie.nom}</Text>
             </View>
           </TouchableOpacity>
+          
         )}
       />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  headerContainer: {
+    alignItems: 'center',
+    paddingVertical: 20,
+  },
+  headerText: {
+    fontWeight: 'bold',
+    fontSize: 54,
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
+    color: 'red', // Couleur rouge
+     backgroundColor: 'lime', 
+  },
+});
 
 export default SousCategoriesList;
