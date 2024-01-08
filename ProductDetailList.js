@@ -36,7 +36,7 @@ const ProductDetailList = ({ route }) => {
       >
         <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}>
            <TouchableOpacity onPress={handleBackPress}>
-        <Text style={{ color: 'white', backgroundColor: 'red', padding: 10 }}>RETOUR LISTE PRODUITS</Text>
+        <Text style={{ color: 'white', backgroundColor: 'black', padding: 10 }}>RETOUR LISTE PRODUITS</Text>
       </TouchableOpacity>
       <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
           <Image
