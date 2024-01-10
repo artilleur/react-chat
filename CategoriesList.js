@@ -23,7 +23,7 @@ const CategoriesList = ({ navigation }) => {
   const handleCategoriePress = (categorie) => {
     navigation.navigate('SousCategories', { categorie });
   };
-  
+
   return (
     <View style={{ flex: 1 }}>
       <View style={styles.headerContainer}>
@@ -34,9 +34,9 @@ const CategoriesList = ({ navigation }) => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => handleCategoriePress(item)}>
-            <View style={{ alignItems: 'center', marginVertical:30 }}>
+            <View style={{ alignItems: 'center', marginVertical: 30 }}>
               <Image source={{ uri: `http://10.0.2.2:8000/images/${item.image}` }} style={{ width: 150, height: 150 }} />
-               <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+              <View style={{ alignItems: 'center', marginBottom: 10, marginTop: 20 }}></View>
               <Text style={styles.headerText2}>{item.nom}</Text>
               {/* <Text>{item.id}</Text> */}
             </View>
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     color: 'white', // Couleur rouge
-     backgroundColor: 'grey', 
+    backgroundColor: 'grey',
   },
 });
 

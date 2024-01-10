@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 const SousCategoriesList = ({ route, navigation }) => {
   const { categorie } = route.params;
   const [sousCategories, setSousCategories] = useState([]);
-  
+
 
   useEffect(() => {
     console.log('Categorie from route params:', categorie);
@@ -44,27 +44,27 @@ const SousCategoriesList = ({ route, navigation }) => {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', marginBottom: 10 }}>
-     
+
       {/* <Text>{categorie.id}</Text> */}
-      <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+      <View style={{ alignItems: 'center', marginBottom: 10, marginTop: 20 }}></View>
       <TouchableOpacity onPress={handleBackPress}>
-        <Text style={{ color: 'white', backgroundColor: 'black', padding: 10 }}>{'\n'} {'\n'}
-  RETOUR CATEGORIES {'\n'} {'\n'}
-</Text>
+        <Text style={{ color: 'white', backgroundColor: 'black', padding: 10 }}>
+          RETOUR CATEGORIES 
+        </Text>
       </TouchableOpacity>
-       <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
-         <Text style={styles.headerText}>{categorie.nom}</Text>
+      <View style={{ alignItems: 'center', marginBottom: 10, marginTop: 20 }}></View>
+      <Text style={styles.headerText}>{categorie.nom}</Text>
       <FlatList
         data={filteredSousCategories}
         keyExtractor={(sousCategorie) => sousCategorie['@id']}
         renderItem={({ item: sousCategorie }) => (
-          
+
           <TouchableOpacity
             onPress={() => handleSousCategoriePress(sousCategorie)}
           >
-            <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+            <View style={{ alignItems: 'center', marginBottom: 10, marginTop: 20 }}></View>
             <View style={{ alignItems: 'center', marginBottom: 10 }}>
-              
+
               <Image
                 source={{
                   uri: `http://10.0.2.2:8000/images/${sousCategorie.image}`,
@@ -74,7 +74,7 @@ const SousCategoriesList = ({ route, navigation }) => {
               <Text>{sousCategorie.nom}</Text>
             </View>
           </TouchableOpacity>
-          
+
         )}
       />
     </View>
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     color: 'red', // Couleur rouge
-     backgroundColor: 'lime', 
+    backgroundColor: 'lime',
   },
 });
 

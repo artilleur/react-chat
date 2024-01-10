@@ -46,7 +46,7 @@ const ProductsList = ({ route }) => {
       <TouchableOpacity onPress={handleBackPress}>
         <Text style={{ color: 'white', backgroundColor: 'black', padding: 10 }}>RETOUR SOUS_CATEGORIES</Text>
       </TouchableOpacity>
-      <View style={{ alignItems: 'center', marginBottom: 10, marginTop:20 }}></View>
+      <View style={{ alignItems: 'center', marginBottom: 10, marginTop: 20 }}></View>
       <Text style={styles.headerText}>{sousCategorie.nom}</Text>
       <Text>{sousCategorie.id}</Text>
 
@@ -88,9 +88,9 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     color: 'red', // Couleur rouge
-     backgroundColor: 'lime', 
+    backgroundColor: 'lime',
   },
-  
+
 });
 
 
